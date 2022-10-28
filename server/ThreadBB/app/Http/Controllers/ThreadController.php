@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreThreadRequest;
 use App\Http\Requests\UpdateThreadRequest;
 use App\Models\Thread;
+use App\Models\Response;
+use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class ThreadController extends Controller
 {
@@ -15,7 +20,10 @@ class ThreadController extends Controller
      */
     public function index()
     {
-        //
+        $threads = Thread::with('user')->get();
+        return Inertia::render('Dashboard', [
+            'threads' => $threads,
+        ]);
     }
 
     /**
@@ -25,7 +33,7 @@ class ThreadController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Thread/Create');
     }
 
     /**
@@ -34,9 +42,14 @@ class ThreadController extends Controller
      * @param  \App\Http\Requests\StoreThreadRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreThreadRequest $request)
+    public function store(Request $request)
     {
-        //
+        $params = $request->all();
+        Thread::create([
+            'user_id' => Auth::id(),
+            'title' => $params['title'],
+        ]);
+        return Redirect::route('dashboard');
     }
 
     /**
@@ -45,9 +58,13 @@ class ThreadController extends Controller
      * @param  \App\Models\Thread  $thread
      * @return \Illuminate\Http\Response
      */
-    public function show(Thread $thread)
+    public function show(Request $request)
     {
-        //
+        $params = $request->all();
+        $threads = Thread::where('id', $params['id'])->with('responses')->first();
+        return Inertia::render('Thread/Show', [
+            'threads' => $threads,
+        ]);
     }
 
     /**

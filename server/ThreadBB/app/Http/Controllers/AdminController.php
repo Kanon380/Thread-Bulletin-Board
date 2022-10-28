@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAdminRequest;
 use App\Http\Requests\UpdateAdminRequest;
 use App\Models\Admin;
+use App\Models\Thread;
+use App\Models\Response;
+use Inertia\Inertia;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -15,7 +20,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $threads = Thread::with('user')->get();
+        return Inertia::render('Admin/Dashboard', [
+            'threads' => $threads,
+        ]);
     }
 
     /**
@@ -82,5 +90,13 @@ class AdminController extends Controller
     public function destroy(Admin $admin)
     {
         //
+    }
+
+    public function delete(Request $request)
+    {
+        $params = $request->all();
+        Thread::where('id', $params['id'])->delete();
+        Response::where('thread_id', $params['id'])->delete();
+        return Redirect::route('admin.dashboard');
     }
 }
