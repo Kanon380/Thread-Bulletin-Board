@@ -20,7 +20,7 @@ class ThreadController extends Controller
      */
     public function index()
     {
-        $threads = Thread::with('user')->get();
+        $threads = Thread::with('user')->with('responses')->get();
         return Inertia::render('Dashboard', [
             'threads' => $threads,
         ]);

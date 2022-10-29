@@ -28,17 +28,10 @@ export default function Show(props) {
 
 const Child = (props) => {
     return (
-        <div>
-            <div>
-                <h2>{props.thread.title}</h2>
-            </div>
-            <div>
-                <Grandchild thread={props.thread} user={props.user} />
-            </div>
-            <div>
-                <ResponseCreate thread={props.thread} />
-            </div>
-        </div>
+        <>
+            <Grandchild thread={props.thread} user={props.user} />
+            <ResponseCreate thread={props.thread} />
+        </>
     )
 }
 
@@ -47,23 +40,35 @@ const Grandchild = (props) => {
         <section className="text-gray-600 body-font overflow-hidden">
             <div className="container px-5 py-24 mx-auto">
                 <div className="divide-y-2 divide-gray-100">
+                    <div className="grid grid-cols-4 py-4 px-2">
+                        <div className="col-span-2">
+                            <p className="font-semibold text-gray-700">レス</p>
+                        </div>
+                        <div className="md:col-span-1 md:block hidden">
+                            <p className="font-semibold text-gray-700">作成日</p>
+                        </div>
+                        <div className="md:col-span-1 col-span-2">
+                            <p className="font-semibold text-gray-700">オプション</p>
+                        </div>
+                    </div>
                     {
                         props.thread.responses.map((val, key) => {
                             return (
-                                <div className="py-8 flex flex-wrap md:flex-nowrap hover:bg-gray-300" key={key}>
-                                    <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-                                        <span className="font-semibold title-font text-gray-700">作成日</span>
-                                        <span className="mt-1 text-gray-500 text-sm">{val.created_at}</span>
+                                <div className="grid grid-cols-4 py-4 px-2" key={key}>
+                                    <div className="col-span-2">
+                                        <p className="font-semibold text-gray-700">{val.content}</p>
                                     </div>
-                                    <div className="md:flex-grow">
-                                        <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">{val.content} id:{val.id}</h2>
+                                    <div className="md:col-span-1 md:block hidden">
+                                        <p className="text-sm text-gray-700">{val.created_at}</p>
+                                    </div>
+                                    <div className="md:col-span-1 col-span-2">
                                         {
                                             props.user.id === val.user_id &&
                                             <>
-                                                <Link href={'/response/edit'} as='button' method='get' data={{ thread_id: props.thread.id, response_id: val.id }} className='focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900'>
+                                                <Link href={'/response/edit'} as='button' method='get' data={{ thread_id: props.thread.id, response_id: val.id }} className='focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg md:text-sm md:px-5 px-4 py-2.5 text-xs  mr-2 mb-2 dark:focus:ring-yellow-900'>
                                                     編集
                                                 </Link>
-                                                <Link href={'/response/delete'} as='button' method='get' data={{ thread_id: props.thread.id, response_id: val.id }} className='focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900'>
+                                                <Link href={'/response/delete'} as='button' method='get' data={{ thread_id: props.thread.id, response_id: val.id }} className='focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg md:text-sm text-xs md:px-5 px-4 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900'>
                                                     削除
                                                 </Link>
                                             </>
@@ -99,14 +104,31 @@ const ResponseCreate = (props) => {
     const onSubmit = (data) => {
         Inertia.post('/response/store', data)
     }
-
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <input {...register("content", { required: true, minLength: 1, maxLength: 10 })} type="text" />
-            {errors.content?.type === 'required' && <p>content is required.</p>}
-            {errors.content?.type === 'minLength' && <p className='mt-3'>content must be at least 1 letter.</p>}
-            {errors.content?.type === 'maxLength' && <p className='mt-3'>content must be 10 characters or less.</p>}
-            <button type='submit'>Submit</button>
-        </form>
+        <section className="text-gray-600 body-font relative">
+            <div className="container px-5 py-24 mx-auto">
+                <div className="flex flex-col text-center w-full">
+                    <p className="font-medium mb-4 text-gray-900">レスはこちらから</p>
+                </div>
+                <form onSubmit={handleSubmit(onSubmit)} className="lg:w-1/2 md:w-2/3 mx-auto">
+                    <div className="flex flex-wrap -m-2">
+                        <div className="p-2 w-full">
+                            <div className="relative">
+                                <textarea {...register("content", { required: true, minLength: 1, maxLength: 10 })} name="content" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                                {errors.content?.type === 'required' && <p className='text-center text-red-500 mt-3'>必須項目です</p>}
+                                {errors.content?.type === 'minLength' && <p className='text-center text-red-500 mt-3'>1文字以上は必須です</p>}
+                                {errors.content?.type === 'maxLength' && <p className='text-center text-red-500 mt-3'>10文字以上は入力できません</p>}
+                            </div>
+                        </div>
+                        <div className="p-2 w-full">
+                            <button type='submit' className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">投稿</button>
+                        </div>
+                        <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
+                            <Link href={'/dashboard'} className='text-indigo-500'>ホームへ戻る</Link>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
     )
 }
