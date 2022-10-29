@@ -2585,7 +2585,7 @@ function Authenticated(_ref) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
               className: "shrink-0 flex items-center",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__.Link, {
-                href: "/",
+                href: "/admin/dashboard",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_ApplicationLogo__WEBPACK_IMPORTED_MODULE_1__["default"], {
                   className: "block h-9 w-auto text-gray-500"
                 })
@@ -2761,7 +2761,7 @@ function Authenticated(_ref) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
               className: "shrink-0 flex items-center",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__.Link, {
-                href: "/",
+                href: "/dashboard",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_ApplicationLogo__WEBPACK_IMPORTED_MODULE_1__["default"], {
                   className: "block h-9 w-auto text-gray-500"
                 })
@@ -3578,39 +3578,48 @@ var Child = function Child(props) {
     className: "text-gray-600 body-font overflow-hidden",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "container px-5 py-24 mx-auto",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "divide-y-2 divide-gray-100",
-        children: props.thread.map(function (val, key) {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "grid grid-cols-4 py-4 px-2",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "col-span-3",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+              className: "font-semibold text-gray-700",
+              children: "\u30B9\u30EC\u30C3\u30C9"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "col-span-1",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+              className: "font-semibold text-gray-700",
+              children: "\u30AA\u30D7\u30B7\u30E7\u30F3"
+            })
+          })]
+        }), props.thread.map(function (val, key) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "py-8 flex flex-wrap md:flex-nowrap",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                className: "font-semibold title-font text-gray-700",
-                children: "\u4F5C\u6210\u65E5"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                className: "mt-1 text-gray-500 text-sm",
-                children: val.created_at
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "md:flex-grow",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h2", {
-                className: "text-2xl font-medium text-gray-900 title-font mb-2",
-                children: [val.title, " id:", val.id]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
+            className: "grid grid-cols-4 py-4 px-2",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "col-span-3",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                className: "font-semibold text-gray-700",
+                children: val.title
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "col-span-1",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
                 href: '/admin/delete',
                 method: "get",
                 data: {
                   id: val.id
                 },
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_PrimaryButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                  children: val.id,
-                  className: "focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                  children: "\u524A\u9664",
+                  className: "focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
                 })
-              })]
+              })
             })]
           }, key);
-        })
+        })]
       })
     })
   });
@@ -4270,39 +4279,63 @@ var Child = function Child(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("section", {
     className: "text-gray-600 body-font overflow-hidden",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "container px-5 py-24 mx-auto",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "container mx-auto",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "divide-y-2 divide-gray-100",
-        children: props.thread.map(function (val, key) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "py-8 flex flex-wrap md:flex-nowrap hover:bg-gray-300",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "font-semibold title-font text-gray-700",
-                children: "\u4F5C\u6210\u65E5"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "mt-1 text-gray-500 text-sm",
-                children: val.created_at
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "md:grid md:grid-cols-4 py-4 px-2",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "md:col-span-2",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+              className: "font-semibold text-gray-700",
+              children: "\u30B9\u30EC\u30C3\u30C9"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "md:col-span-1 md:block hidden",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+              className: "font-semibold text-gray-700",
+              children: "\u30EC\u30B9\u6570"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "md:col-span-1 md:block hidden",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+              className: "font-semibold text-gray-700",
+              children: "\u4F5C\u6210\u65E5"
+            })
+          })]
+        }), props.thread.map(function (val, key) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
+            href: '/thread/show',
+            as: "button",
+            method: "get",
+            data: {
+              id: val.id
+            },
+            className: "hover:bg-slate-100 w-full px-2 py-4",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "md:grid md:grid-cols-4",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "md:col-span-2 flex justify-start items-center",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                  className: "text-lg font-medium text-gray-900",
+                  children: val.title
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "md:col-span-1 md:flex justify-start items-center hidden",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                  className: "text-gray-500 text-sm",
+                  children: val.responses.length
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "md:col-span-1 md:flex justify-start items-center hidden",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                  className: "mt-1 text-gray-500 text-sm",
+                  children: val.created_at
+                })
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "md:flex-grow",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h2", {
-                className: "text-2xl font-medium text-gray-900 title-font mb-2",
-                children: [val.title, " id:", val.id]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
-                href: '/thread/show',
-                as: "button",
-                method: "get",
-                data: {
-                  id: val.id
-                },
-                className: "bg-red-50",
-                children: "\u8A73\u7D30"
-              })]
-            })]
+            }, key)
           }, key);
-        })
+        })]
       })
     })
   });
@@ -4473,26 +4506,65 @@ var Child = function Child(props) {
   var onSubmit = function onSubmit(data) {
     _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__.Inertia.get('/response/update', data);
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
-    onSubmit: handleSubmit(onSubmit),
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", _objectSpread(_objectSpread({}, register("content", {
-      required: true,
-      minLength: 1,
-      maxLength: 10
-    })), {}, {
-      type: "text"
-    })), ((_errors$content = errors.content) === null || _errors$content === void 0 ? void 0 : _errors$content.type) === 'required' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      children: "content is required."
-    }), ((_errors$content2 = errors.content) === null || _errors$content2 === void 0 ? void 0 : _errors$content2.type) === 'minLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      className: "mt-3",
-      children: "content must be at least 1 letter."
-    }), ((_errors$content3 = errors.content) === null || _errors$content3 === void 0 ? void 0 : _errors$content3.type) === 'maxLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      className: "mt-3",
-      children: "content must be 10 characters or less."
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-      type: "submit",
-      children: "Submit"
-    })]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("section", {
+    className: "text-gray-600 body-font relative",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "container px-5 py-24 mx-auto",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "flex flex-col text-center w-full",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+          className: "sm:text-3xl text-2xl font-medium mb-4 text-gray-900",
+          children: "\u30B9\u30EC\u30C3\u30C9\u4F5C\u6210"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("form", {
+        className: "lg:w-1/2 md:w-2/3 mx-auto",
+        onSubmit: handleSubmit(onSubmit),
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "flex flex-wrap -m-2",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "p-2 w-full mb-4",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "relative",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                "for": "content",
+                className: "leading-7 text-sm text-gray-600",
+                children: "\u7DE8\u96C6"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("textarea", _objectSpread(_objectSpread({}, register("content", {
+                required: true,
+                minLength: 1,
+                maxLength: 10
+              })), {}, {
+                type: "text",
+                className: "w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              })), ((_errors$content = errors.content) === null || _errors$content === void 0 ? void 0 : _errors$content.type) === 'required' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                className: "text-center text-red-500 mt-3",
+                children: "\u5FC5\u9808\u9805\u76EE\u3067\u3059"
+              }), ((_errors$content2 = errors.content) === null || _errors$content2 === void 0 ? void 0 : _errors$content2.type) === 'minLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                className: "text-center text-red-500 mt-3",
+                children: "1\u6587\u5B57\u4EE5\u4E0A\u306B\u3057\u3066\u4E0B\u3055\u3044"
+              }), ((_errors$content3 = errors.content) === null || _errors$content3 === void 0 ? void 0 : _errors$content3.type) === 'maxLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                className: "text-center text-red-500 mt-3",
+                children: "10\u6587\u5B57\u4EE5\u5185\u306B\u3057\u3066\u4E0B\u3055\u3044"
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "p-2 w-full",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+              type: "submit",
+              className: "flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg",
+              children: "\u7DE8\u96C6"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
+              href: '/dashboard',
+              className: "text-indigo-500",
+              children: "\u30DB\u30FC\u30E0\u3078\u623B\u308B"
+            })
+          })]
+        })
+      })]
+    })
   });
 };
 
@@ -4531,7 +4603,7 @@ function Create(props) {
     errors: props.errors,
     header: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
       className: "font-semibold text-xl text-gray-800 leading-tight",
-      children: "Dashboard"
+      children: "\u30B9\u30EC\u30C3\u30C9\u4F5C\u6210"
     }),
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
       title: "Dashboard"
@@ -4563,26 +4635,66 @@ var Child = function Child() {
   var onSubmit = function onSubmit(data) {
     _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__.Inertia.get('/thread/store', data);
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
-    onSubmit: handleSubmit(onSubmit),
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", _objectSpread(_objectSpread({}, register("title", {
-      required: true,
-      minLength: 1,
-      maxLength: 10
-    })), {}, {
-      type: "text"
-    })), ((_errors$title = errors.title) === null || _errors$title === void 0 ? void 0 : _errors$title.type) === 'required' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      children: "Title is required."
-    }), ((_errors$title2 = errors.title) === null || _errors$title2 === void 0 ? void 0 : _errors$title2.type) === 'minLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      className: "mt-3",
-      children: "Title must be at least 1 letter."
-    }), ((_errors$title3 = errors.title) === null || _errors$title3 === void 0 ? void 0 : _errors$title3.type) === 'maxLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      className: "mt-3",
-      children: "Title must be 10 characters or less."
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-      type: "submit",
-      children: "Submit"
-    })]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("section", {
+    className: "text-gray-600 body-font relative",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "container px-5 py-24 mx-auto",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "flex flex-col text-center w-full",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+          className: "sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900",
+          children: "\u30B9\u30EC\u30C3\u30C9\u4F5C\u6210"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("form", {
+        className: "lg:w-1/2 md:w-2/3 mx-auto",
+        onSubmit: handleSubmit(onSubmit),
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "flex flex-wrap -m-2",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "p-2 w-full mb-4",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "relative",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                "for": "title",
+                className: "leading-7 text-sm text-gray-600",
+                children: "\u30BF\u30A4\u30C8\u30EB"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", _objectSpread(_objectSpread({}, register("title", {
+                required: true,
+                minLength: 1,
+                maxLength: 10
+              })), {}, {
+                type: "text",
+                id: "title",
+                className: "w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              })), ((_errors$title = errors.title) === null || _errors$title === void 0 ? void 0 : _errors$title.type) === 'required' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                className: "text-center text-red-500 mt-3",
+                children: "\u30BF\u30A4\u30C8\u30EB\u306F\u5FC5\u9808\u9805\u76EE\u3067\u3059"
+              }), ((_errors$title2 = errors.title) === null || _errors$title2 === void 0 ? void 0 : _errors$title2.type) === 'minLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                className: "text-center text-red-500 mt-3",
+                children: "\u30BF\u30A4\u30C8\u30EB\u306F1\u6587\u5B57\u4EE5\u4E0A\u306B\u3057\u3066\u4E0B\u3055\u3044"
+              }), ((_errors$title3 = errors.title) === null || _errors$title3 === void 0 ? void 0 : _errors$title3.type) === 'maxLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                className: "text-center text-red-500 mt-3",
+                children: "\u30BF\u30A4\u30C8\u30EB\u306F10\u6587\u5B57\u4EE5\u5185\u306B\u3057\u3066\u4E0B\u3055\u3044"
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "p-2 w-full",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+              type: "submit",
+              className: "flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg",
+              children: "\u4F5C\u6210"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
+              href: '/dashboard',
+              className: "text-indigo-500",
+              children: "\u30DB\u30FC\u30E0\u3078\u623B\u308B"
+            })
+          })]
+        })
+      })]
+    })
   });
 };
 
@@ -4647,20 +4759,12 @@ function Show(props) {
   });
 }
 var Child = function Child(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
-        children: props.thread.title
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Grandchild, {
-        thread: props.thread,
-        user: props.user
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ResponseCreate, {
-        thread: props.thread
-      })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Grandchild, {
+      thread: props.thread,
+      user: props.user
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ResponseCreate, {
+      thread: props.thread
     })]
   });
 };
@@ -4669,26 +4773,47 @@ var Grandchild = function Grandchild(props) {
     className: "text-gray-600 body-font overflow-hidden",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "container px-5 py-24 mx-auto",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "divide-y-2 divide-gray-100",
-        children: props.thread.responses.map(function (val, key) {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "grid grid-cols-4 py-4 px-2",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "col-span-2",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+              className: "font-semibold text-gray-700",
+              children: "\u30EC\u30B9"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "md:col-span-1 md:block hidden",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+              className: "font-semibold text-gray-700",
+              children: "\u4F5C\u6210\u65E5"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "md:col-span-1 col-span-2",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+              className: "font-semibold text-gray-700",
+              children: "\u30AA\u30D7\u30B7\u30E7\u30F3"
+            })
+          })]
+        }), props.thread.responses.map(function (val, key) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "py-8 flex flex-wrap md:flex-nowrap hover:bg-gray-300",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                className: "font-semibold title-font text-gray-700",
-                children: "\u4F5C\u6210\u65E5"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                className: "mt-1 text-gray-500 text-sm",
+            className: "grid grid-cols-4 py-4 px-2",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "col-span-2",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                className: "font-semibold text-gray-700",
+                children: val.content
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "md:col-span-1 md:block hidden",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                className: "text-sm text-gray-700",
                 children: val.created_at
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "md:flex-grow",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h2", {
-                className: "text-2xl font-medium text-gray-900 title-font mb-2",
-                children: [val.content, " id:", val.id]
-              }), props.user.id === val.user_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "md:col-span-1 col-span-2",
+              children: props.user.id === val.user_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
                   href: '/response/edit',
                   as: "button",
@@ -4697,7 +4822,7 @@ var Grandchild = function Grandchild(props) {
                     thread_id: props.thread.id,
                     response_id: val.id
                   },
-                  className: "focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900",
+                  className: "focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg md:text-sm md:px-5 px-4 py-2.5 text-xs  mr-2 mb-2 dark:focus:ring-yellow-900",
                   children: "\u7DE8\u96C6"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
                   href: '/response/delete',
@@ -4707,13 +4832,13 @@ var Grandchild = function Grandchild(props) {
                     thread_id: props.thread.id,
                     response_id: val.id
                   },
-                  className: "focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900",
+                  className: "focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg md:text-sm text-xs md:px-5 px-4 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900",
                   children: "\u524A\u9664"
                 })]
-              })]
+              })
             })]
           }, key);
-        })
+        })]
       })
     })
   });
@@ -4741,26 +4866,61 @@ var ResponseCreate = function ResponseCreate(props) {
   var onSubmit = function onSubmit(data) {
     _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__.Inertia.post('/response/store', data);
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
-    onSubmit: handleSubmit(onSubmit),
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", _objectSpread(_objectSpread({}, register("content", {
-      required: true,
-      minLength: 1,
-      maxLength: 10
-    })), {}, {
-      type: "text"
-    })), ((_errors$content = errors.content) === null || _errors$content === void 0 ? void 0 : _errors$content.type) === 'required' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      children: "content is required."
-    }), ((_errors$content2 = errors.content) === null || _errors$content2 === void 0 ? void 0 : _errors$content2.type) === 'minLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      className: "mt-3",
-      children: "content must be at least 1 letter."
-    }), ((_errors$content3 = errors.content) === null || _errors$content3 === void 0 ? void 0 : _errors$content3.type) === 'maxLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      className: "mt-3",
-      children: "content must be 10 characters or less."
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-      type: "submit",
-      children: "Submit"
-    })]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("section", {
+    className: "text-gray-600 body-font relative",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "container px-5 py-24 mx-auto",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "flex flex-col text-center w-full",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          className: "font-medium mb-4 text-gray-900",
+          children: "\u30EC\u30B9\u306F\u3053\u3061\u3089\u304B\u3089"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("form", {
+        onSubmit: handleSubmit(onSubmit),
+        className: "lg:w-1/2 md:w-2/3 mx-auto",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "flex flex-wrap -m-2",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "p-2 w-full",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "relative",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("textarea", _objectSpread(_objectSpread({}, register("content", {
+                required: true,
+                minLength: 1,
+                maxLength: 10
+              })), {}, {
+                name: "content",
+                className: "w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+              })), ((_errors$content = errors.content) === null || _errors$content === void 0 ? void 0 : _errors$content.type) === 'required' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                className: "text-center text-red-500 mt-3",
+                children: "\u5FC5\u9808\u9805\u76EE\u3067\u3059"
+              }), ((_errors$content2 = errors.content) === null || _errors$content2 === void 0 ? void 0 : _errors$content2.type) === 'minLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                className: "text-center text-red-500 mt-3",
+                children: "1\u6587\u5B57\u4EE5\u4E0A\u306F\u5FC5\u9808\u3067\u3059"
+              }), ((_errors$content3 = errors.content) === null || _errors$content3 === void 0 ? void 0 : _errors$content3.type) === 'maxLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                className: "text-center text-red-500 mt-3",
+                children: "10\u6587\u5B57\u4EE5\u4E0A\u306F\u5165\u529B\u3067\u304D\u307E\u305B\u3093"
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "p-2 w-full",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+              type: "submit",
+              className: "flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg",
+              children: "\u6295\u7A3F"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
+              href: '/dashboard',
+              className: "text-indigo-500",
+              children: "\u30DB\u30FC\u30E0\u3078\u623B\u308B"
+            })
+          })]
+        })
+      })]
+    })
   });
 };
 

@@ -27,23 +27,35 @@ export default function Dashboard(props) {
 const Child = (props) => {
     return (
         <section className="text-gray-600 body-font overflow-hidden">
-            <div className="container px-5 py-24 mx-auto">
+            <div className="container mx-auto">
                 <div className="divide-y-2 divide-gray-100">
+                    <div className="md:grid md:grid-cols-4 py-4 px-2">
+                        <div className="md:col-span-2">
+                            <p className="font-semibold text-gray-700">スレッド</p>
+                        </div>
+                        <div className="md:col-span-1 md:block hidden">
+                            <p className="font-semibold text-gray-700">レス数</p>
+                        </div>
+                        <div className="md:col-span-1 md:block hidden">
+                            <p className="font-semibold text-gray-700">作成日</p>
+                        </div>
+                    </div>
                     {
                         props.thread.map((val, key) => {
                             return (
-                                <div className="py-8 flex flex-wrap md:flex-nowrap hover:bg-gray-300" key={key}>
-                                    <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-                                        <span className="font-semibold title-font text-gray-700">作成日</span>
-                                        <span className="mt-1 text-gray-500 text-sm">{val.created_at}</span>
+                                <Link href={'/thread/show'} as='button' method='get' data={{ id: val.id }} className='hover:bg-slate-100 w-full px-2 py-4' key={key}>
+                                    <div className="md:grid md:grid-cols-4" key={key}>
+                                        <div className="md:col-span-2 flex justify-start items-center">
+                                            <p className="text-lg font-medium text-gray-900">{val.title}</p>
+                                        </div>
+                                        <div className="md:col-span-1 md:flex justify-start items-center hidden">
+                                            <p className="text-gray-500 text-sm">{val.responses.length}</p>
+                                        </div>
+                                        <div className="md:col-span-1 md:flex justify-start items-center hidden">
+                                            <p className="mt-1 text-gray-500 text-sm">{val.created_at}</p>
+                                        </div>
                                     </div>
-                                    <div className="md:flex-grow">
-                                        <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">{val.title} id:{val.id}</h2>
-                                        <Link href={'/thread/show'} as='button' method='get' data={{ id: val.id }} className='bg-red-50'>
-                                            詳細
-                                        </Link>
-                                    </div>
-                                </div>
+                                </Link>
                             )
                         })
                     }
