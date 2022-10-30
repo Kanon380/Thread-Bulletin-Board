@@ -17,6 +17,7 @@ export default function Edit(props) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 bg-white border-b border-gray-200">
+                            {props.errors.content && <Error error={props.errors} />}
                             <Child response={props.response} />
                         </div>
                     </div>
@@ -41,16 +42,15 @@ const Child = (props) => {
         <section className="text-gray-600 body-font relative">
             <div className="container px-5 py-24 mx-auto">
                 <div className="flex flex-col text-center w-full">
-                    <h1 className="sm:text-3xl text-2xl font-medium mb-4 text-gray-900">スレッド作成</h1>
+                    <h1 className="sm:text-3xl text-2xl font-medium mb-4 text-gray-900">レス編集</h1>
                 </div>
                 <form className="lg:w-1/2 md:w-2/3 mx-auto" onSubmit={handleSubmit(onSubmit)}>
                     <div className="flex flex-wrap -m-2">
                         <div className="p-2 w-full mb-4">
                             <div className="relative">
                                 <label for="content" className="leading-7 text-sm text-gray-600">編集</label>
-                                <textarea {...register("content", { required: true, minLength: 1, maxLength: 10 })} type="text" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"></textarea>
+                                <textarea {...register("content", { required: true, maxLength: 10 })} type="text" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"></textarea>
                                 {errors.content?.type === 'required' && <p className='text-center text-red-500 mt-3'>必須項目です</p>}
-                                {errors.content?.type === 'minLength' && <p className='text-center text-red-500 mt-3'>1文字以上にして下さい</p>}
                                 {errors.content?.type === 'maxLength' && <p className='text-center text-red-500 mt-3'>10文字以内にして下さい</p>}
                             </div>
                         </div>
@@ -64,5 +64,18 @@ const Child = (props) => {
                 </form>
             </div>
         </section>
+    )
+}
+
+const Error = (props) => {
+    return (
+        <div role="alert">
+            <div className="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+                Error
+            </div>
+            <div className="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+                <p>{props.error.content}</p>
+            </div>
+        </div>
     )
 }

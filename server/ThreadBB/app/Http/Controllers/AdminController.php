@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAdminRequest;
 use App\Http\Requests\UpdateAdminRequest;
+use App\Http\Requests\IdRequest;
 use App\Models\Admin;
 use App\Models\Thread;
 use App\Models\Response;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -92,7 +92,7 @@ class AdminController extends Controller
         //
     }
 
-    public function delete(Request $request)
+    public function delete(IdRequest $request)
     {
         $params = $request->all();
         Thread::where('id', $params['id'])->delete();

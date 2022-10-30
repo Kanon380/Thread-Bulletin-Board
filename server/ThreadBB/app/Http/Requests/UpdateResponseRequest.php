@@ -13,7 +13,7 @@ class UpdateResponseRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,18 @@ class UpdateResponseRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'response_id' => ['required', 'numeric'],
+            'content' => ['required', 'max:10']
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'response_id.required' => '必須項目がありません、管理者にお問い合わせ下さい。',
+            'response_id.numeric' => 'データの型が正しくありません、管理者にお問い合わせ下さい。',
+            'content.required' => 'レスの内容は必須項目です',
+            'content.max' => 'レスの内容は10文字以内です'
         ];
     }
 }

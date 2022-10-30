@@ -15,6 +15,7 @@ export default function Dashboard(props) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 bg-white border-b border-gray-200">
+                            {props.errors.id && <Error error={props.errors} />}
                             {props.threads.length ? <Child thread={props.threads} /> : <NoData />}
                         </div>
                     </div>
@@ -69,6 +70,19 @@ const NoData = () => {
     return (
         <div>
             スレッドが存在しません
+        </div>
+    )
+}
+
+const Error = (props) => {
+    return (
+        <div role="alert">
+            <div className="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+                Error
+            </div>
+            <div className="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+                <p>{props.error.id}</p>
+            </div>
         </div>
     )
 }

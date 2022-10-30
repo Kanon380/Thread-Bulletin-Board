@@ -17,6 +17,9 @@ export default function Show(props) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 bg-white border-b border-gray-200">
+                            {props.errors.id && <Error error={props.errors} />}
+                            {props.errors.thread_id && <Error error={props.errors} />}
+                            {props.errors.content && <Error error={props.errors} />}
                             {props.threads.responses.length ? <Child thread={props.threads} user={props.auth.user} /> : <NoData thread={props.threads} />}
                         </div>
                     </div>
@@ -65,10 +68,10 @@ const Grandchild = (props) => {
                                         {
                                             props.user.id === val.user_id &&
                                             <>
-                                                <Link href={'/response/edit'} as='button' method='get' data={{ thread_id: props.thread.id, response_id: val.id }} className='focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg md:text-sm md:px-5 px-4 py-2.5 text-xs  mr-2 mb-2 dark:focus:ring-yellow-900'>
+                                                <Link href={'/response/edit'} as='button' method='get' data={{ id: val.id }} className='focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg md:text-sm md:px-5 px-4 py-2.5 text-xs  mr-2 mb-2 dark:focus:ring-yellow-900'>
                                                     編集
                                                 </Link>
-                                                <Link href={'/response/delete'} as='button' method='get' data={{ thread_id: props.thread.id, response_id: val.id }} className='focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg md:text-sm text-xs md:px-5 px-4 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900'>
+                                                <Link href={'/response/delete'} as='button' method='get' data={{ id: val.id }} className='focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg md:text-sm text-xs md:px-5 px-4 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900'>
                                                     削除
                                                 </Link>
                                             </>
@@ -114,9 +117,8 @@ const ResponseCreate = (props) => {
                     <div className="flex flex-wrap -m-2">
                         <div className="p-2 w-full">
                             <div className="relative">
-                                <textarea {...register("content", { required: true, minLength: 1, maxLength: 10 })} name="content" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                                <textarea {...register("content", { required: true, maxLength: 10 })} name="content" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                                 {errors.content?.type === 'required' && <p className='text-center text-red-500 mt-3'>必須項目です</p>}
-                                {errors.content?.type === 'minLength' && <p className='text-center text-red-500 mt-3'>1文字以上は必須です</p>}
                                 {errors.content?.type === 'maxLength' && <p className='text-center text-red-500 mt-3'>10文字以上は入力できません</p>}
                             </div>
                         </div>
@@ -130,5 +132,20 @@ const ResponseCreate = (props) => {
                 </form>
             </div>
         </section>
+    )
+}
+
+const Error = (props) => {
+    return (
+        <div role="alert">
+            <div className="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+                Error
+            </div>
+            <div className="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+                <p>{props.error.id && props.error.id}</p>
+                <p>{props.error.thread_id && props.error.thread_id}</p>
+                <p>{props.error.content && props.error.content}</p>
+            </div>
+        </div>
     )
 }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreThreadRequest extends FormRequest
+class IdRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,17 +24,16 @@ class StoreThreadRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'max:10']
+            'id' => ['required', 'numeric'],
         ];
     }
 
     public function messages()
     {
         return [
-            'title.required' => 'タイトルは必須項目です',
-            'title.max' => 'タイトルは10文字以内です'
+            'id.required' => '必須項目がありません、管理者にお問い合わせ下さい。',
+            'id.numeric' => 'データの型が正しくありません、管理者にお問い合わせ下さい。',
         ];
     }
 
-    protected $redirect = '/thread/create';
 }

@@ -38,9 +38,8 @@ const Child = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <input {...register("title", { required: true, minLength: 1, maxLength: 10 })} type="text" />
+            <input {...register("title", { required: true, maxLength: 10 })} type="text" />
             {errors.title?.type === 'required' && <p>Title is required.</p>}
-            {errors.title?.type === 'minLength' && <p className='mt-3'>Title must be at least 1 letter.</p>}
             {errors.title?.type === 'maxLength' && <p className='mt-3'>Title must be 10 characters or less.</p>}
             <button type='submit'>Submit</button>
         </form>

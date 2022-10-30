@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreResponseRequest;
 use App\Http\Requests\UpdateResponseRequest;
+use App\Http\Requests\IdRequest;
 use App\Models\Response;
-use App\Models\Thread;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
@@ -39,7 +38,7 @@ class ResponseController extends Controller
      * @param  \App\Http\Requests\StoreResponseRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreResponseRequest $request)
     {
         $params = $request->all();
         Response::create([
@@ -67,13 +66,14 @@ class ResponseController extends Controller
      * @param  \App\Models\Response  $response
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit(IdRequest $request)
     {
         $params = $request->all();
-        $response = Response::where('id', $params['response_id'])->with('thread')->first();
+        $response = Response::where('id', $params['id'])->with('thread')->first();
         return Inertia::render('Response/Edit', [
             'response' => $response,
         ]);
+
     }
 
     /**
@@ -83,7 +83,7 @@ class ResponseController extends Controller
      * @param  \App\Models\Response  $response
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(UpdateResponseRequest $request)
     {
         $params = $request->all();
         Response::where('id', $params['response_id'])->update(['content' => $params['content']]);
@@ -97,10 +97,12 @@ class ResponseController extends Controller
      * @param  \App\Models\Response  $response
      * @return \Illuminate\Http\Response
      */
-    public function delete(Request $request)
+    public function delete(IdRequest $request)
     {
         $params = $request->all();
-        Response::where('id', $params['response_id'])->delete();
-        return Redirect::route('thread.show', ['id' => $params['thread_id']]);
+        $response = Response::where('id', $params['id'])->first();
+        $thread_id = $response['thread_id'];
+        Response::where('id', $params['id'])->delete();
+        return Redirect::route('thread.show', ['id' => $thread_id]);
     }
 }
