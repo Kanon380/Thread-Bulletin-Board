@@ -3562,11 +3562,13 @@ function Dashboard(props) {
         className: "max-w-7xl mx-auto sm:px-6 lg:px-8",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "bg-white overflow-hidden shadow-sm sm:rounded-lg",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "p-6 bg-white border-b border-gray-200",
-            children: props.threads.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Child, {
+            children: [props.errors.id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Error, {
+              error: props.errors
+            }), props.threads.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Child, {
               thread: props.threads
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(NoData, {})
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(NoData, {})]
           })
         })
       })
@@ -3627,6 +3629,20 @@ var Child = function Child(props) {
 var NoData = function NoData() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     children: "\u30B9\u30EC\u30C3\u30C9\u304C\u5B58\u5728\u3057\u307E\u305B\u3093"
+  });
+};
+var Error = function Error(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    role: "alert",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "bg-red-500 text-white font-bold rounded-t px-4 py-2",
+      children: "Error"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        children: props.error.id
+      })
+    })]
   });
 };
 
@@ -4264,11 +4280,13 @@ function Dashboard(props) {
         className: "max-w-7xl mx-auto sm:px-6 lg:px-8",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "bg-white overflow-hidden shadow-sm sm:rounded-lg",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "p-6 bg-white border-b border-gray-200",
-            children: props.threads.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Child, {
+            children: [props.errors.id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Error, {
+              error: props.errors
+            }), props.threads.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Child, {
               thread: props.threads
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(NoData, {})
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(NoData, {})]
           })
         })
       })
@@ -4345,6 +4363,20 @@ var NoData = function NoData() {
     children: "\u30B9\u30EC\u30C3\u30C9\u304C\u5B58\u5728\u3057\u307E\u305B\u3093"
   });
 };
+var Error = function Error(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    role: "alert",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "bg-red-500 text-white font-bold rounded-t px-4 py-2",
+      children: "Error"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        children: props.error.id
+      })
+    })]
+  });
+};
 
 /***/ }),
 
@@ -4401,7 +4433,7 @@ function Create(props) {
   });
 }
 var Child = function Child() {
-  var _errors$title, _errors$title2, _errors$title3;
+  var _errors$title, _errors$title2;
   var _useForm = (0,react_hook_form__WEBPACK_IMPORTED_MODULE_5__.useForm)({
       defaultValues: {
         title: ''
@@ -4417,16 +4449,12 @@ var Child = function Child() {
     onSubmit: handleSubmit(onSubmit),
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", _objectSpread(_objectSpread({}, register("title", {
       required: true,
-      minLength: 1,
       maxLength: 10
     })), {}, {
       type: "text"
     })), ((_errors$title = errors.title) === null || _errors$title === void 0 ? void 0 : _errors$title.type) === 'required' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
       children: "Title is required."
-    }), ((_errors$title2 = errors.title) === null || _errors$title2 === void 0 ? void 0 : _errors$title2.type) === 'minLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      className: "mt-3",
-      children: "Title must be at least 1 letter."
-    }), ((_errors$title3 = errors.title) === null || _errors$title3 === void 0 ? void 0 : _errors$title3.type) === 'maxLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+    }), ((_errors$title2 = errors.title) === null || _errors$title2 === void 0 ? void 0 : _errors$title2.type) === 'maxLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
       className: "mt-3",
       children: "Title must be 10 characters or less."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
@@ -4481,11 +4509,13 @@ function Edit(props) {
         className: "max-w-7xl mx-auto sm:px-6 lg:px-8",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "bg-white overflow-hidden shadow-sm sm:rounded-lg",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "p-6 bg-white border-b border-gray-200",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Child, {
+            children: [props.errors.content && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Error, {
+              error: props.errors
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Child, {
               response: props.response
-            })
+            })]
           })
         })
       })
@@ -4493,7 +4523,7 @@ function Edit(props) {
   });
 }
 var Child = function Child(props) {
-  var _errors$content, _errors$content2, _errors$content3;
+  var _errors$content, _errors$content2;
   var _useForm = (0,react_hook_form__WEBPACK_IMPORTED_MODULE_5__.useForm)({
       defaultValues: {
         response_id: props.response.id,
@@ -4514,7 +4544,7 @@ var Child = function Child(props) {
         className: "flex flex-col text-center w-full",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
           className: "sm:text-3xl text-2xl font-medium mb-4 text-gray-900",
-          children: "\u30B9\u30EC\u30C3\u30C9\u4F5C\u6210"
+          children: "\u30EC\u30B9\u7DE8\u96C6"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("form", {
         className: "lg:w-1/2 md:w-2/3 mx-auto",
@@ -4531,7 +4561,6 @@ var Child = function Child(props) {
                 children: "\u7DE8\u96C6"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("textarea", _objectSpread(_objectSpread({}, register("content", {
                 required: true,
-                minLength: 1,
                 maxLength: 10
               })), {}, {
                 type: "text",
@@ -4539,10 +4568,7 @@ var Child = function Child(props) {
               })), ((_errors$content = errors.content) === null || _errors$content === void 0 ? void 0 : _errors$content.type) === 'required' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                 className: "text-center text-red-500 mt-3",
                 children: "\u5FC5\u9808\u9805\u76EE\u3067\u3059"
-              }), ((_errors$content2 = errors.content) === null || _errors$content2 === void 0 ? void 0 : _errors$content2.type) === 'minLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-                className: "text-center text-red-500 mt-3",
-                children: "1\u6587\u5B57\u4EE5\u4E0A\u306B\u3057\u3066\u4E0B\u3055\u3044"
-              }), ((_errors$content3 = errors.content) === null || _errors$content3 === void 0 ? void 0 : _errors$content3.type) === 'maxLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+              }), ((_errors$content2 = errors.content) === null || _errors$content2 === void 0 ? void 0 : _errors$content2.type) === 'maxLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                 className: "text-center text-red-500 mt-3",
                 children: "10\u6587\u5B57\u4EE5\u5185\u306B\u3057\u3066\u4E0B\u3055\u3044"
               })]
@@ -4565,6 +4591,20 @@ var Child = function Child(props) {
         })
       })]
     })
+  });
+};
+var Error = function Error(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    role: "alert",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "bg-red-500 text-white font-bold rounded-t px-4 py-2",
+      children: "Error"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        children: props.error.content
+      })
+    })]
   });
 };
 
@@ -4613,9 +4653,11 @@ function Create(props) {
         className: "max-w-7xl mx-auto sm:px-6 lg:px-8",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "bg-white overflow-hidden shadow-sm sm:rounded-lg",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "p-6 bg-white border-b border-gray-200",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Child, {})
+            children: [props.errors.title && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Error, {
+              error: props.errors
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Child, {})]
           })
         })
       })
@@ -4623,7 +4665,7 @@ function Create(props) {
   });
 }
 var Child = function Child() {
-  var _errors$title, _errors$title2, _errors$title3;
+  var _errors$title, _errors$title2;
   var _useForm = (0,react_hook_form__WEBPACK_IMPORTED_MODULE_5__.useForm)({
       defaultValues: {
         title: ''
@@ -4655,12 +4697,11 @@ var Child = function Child() {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "relative",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-                "for": "title",
+                htmlFor: "title",
                 className: "leading-7 text-sm text-gray-600",
                 children: "\u30BF\u30A4\u30C8\u30EB"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", _objectSpread(_objectSpread({}, register("title", {
                 required: true,
-                minLength: 1,
                 maxLength: 10
               })), {}, {
                 type: "text",
@@ -4669,10 +4710,7 @@ var Child = function Child() {
               })), ((_errors$title = errors.title) === null || _errors$title === void 0 ? void 0 : _errors$title.type) === 'required' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                 className: "text-center text-red-500 mt-3",
                 children: "\u30BF\u30A4\u30C8\u30EB\u306F\u5FC5\u9808\u9805\u76EE\u3067\u3059"
-              }), ((_errors$title2 = errors.title) === null || _errors$title2 === void 0 ? void 0 : _errors$title2.type) === 'minLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-                className: "text-center text-red-500 mt-3",
-                children: "\u30BF\u30A4\u30C8\u30EB\u306F1\u6587\u5B57\u4EE5\u4E0A\u306B\u3057\u3066\u4E0B\u3055\u3044"
-              }), ((_errors$title3 = errors.title) === null || _errors$title3 === void 0 ? void 0 : _errors$title3.type) === 'maxLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+              }), ((_errors$title2 = errors.title) === null || _errors$title2 === void 0 ? void 0 : _errors$title2.type) === 'maxLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                 className: "text-center text-red-500 mt-3",
                 children: "\u30BF\u30A4\u30C8\u30EB\u306F10\u6587\u5B57\u4EE5\u5185\u306B\u3057\u3066\u4E0B\u3055\u3044"
               })]
@@ -4695,6 +4733,20 @@ var Child = function Child() {
         })
       })]
     })
+  });
+};
+var Error = function Error(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    role: "alert",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "bg-red-500 text-white font-bold rounded-t px-4 py-2",
+      children: "Error"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        children: props.error.title
+      })
+    })]
   });
 };
 
@@ -4744,14 +4796,20 @@ function Show(props) {
         className: "max-w-7xl mx-auto sm:px-6 lg:px-8",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "bg-white overflow-hidden shadow-sm sm:rounded-lg",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "p-6 bg-white border-b border-gray-200",
-            children: props.threads.responses.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Child, {
+            children: [props.errors.id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Error, {
+              error: props.errors
+            }), props.errors.thread_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Error, {
+              error: props.errors
+            }), props.errors.content && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Error, {
+              error: props.errors
+            }), props.threads.responses.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Child, {
               thread: props.threads,
               user: props.auth.user
             }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(NoData, {
               thread: props.threads
-            })
+            })]
           })
         })
       })
@@ -4819,8 +4877,7 @@ var Grandchild = function Grandchild(props) {
                   as: "button",
                   method: "get",
                   data: {
-                    thread_id: props.thread.id,
-                    response_id: val.id
+                    id: val.id
                   },
                   className: "focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg md:text-sm md:px-5 px-4 py-2.5 text-xs  mr-2 mb-2 dark:focus:ring-yellow-900",
                   children: "\u7DE8\u96C6"
@@ -4829,8 +4886,7 @@ var Grandchild = function Grandchild(props) {
                   as: "button",
                   method: "get",
                   data: {
-                    thread_id: props.thread.id,
-                    response_id: val.id
+                    id: val.id
                   },
                   className: "focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg md:text-sm text-xs md:px-5 px-4 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900",
                   children: "\u524A\u9664"
@@ -4853,7 +4909,7 @@ var NoData = function NoData(props) {
   });
 };
 var ResponseCreate = function ResponseCreate(props) {
-  var _errors$content, _errors$content2, _errors$content3;
+  var _errors$content, _errors$content2;
   var _useForm = (0,react_hook_form__WEBPACK_IMPORTED_MODULE_5__.useForm)({
       defaultValues: {
         thread_id: props.thread.id,
@@ -4887,7 +4943,6 @@ var ResponseCreate = function ResponseCreate(props) {
               className: "relative",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("textarea", _objectSpread(_objectSpread({}, register("content", {
                 required: true,
-                minLength: 1,
                 maxLength: 10
               })), {}, {
                 name: "content",
@@ -4895,10 +4950,7 @@ var ResponseCreate = function ResponseCreate(props) {
               })), ((_errors$content = errors.content) === null || _errors$content === void 0 ? void 0 : _errors$content.type) === 'required' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                 className: "text-center text-red-500 mt-3",
                 children: "\u5FC5\u9808\u9805\u76EE\u3067\u3059"
-              }), ((_errors$content2 = errors.content) === null || _errors$content2 === void 0 ? void 0 : _errors$content2.type) === 'minLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-                className: "text-center text-red-500 mt-3",
-                children: "1\u6587\u5B57\u4EE5\u4E0A\u306F\u5FC5\u9808\u3067\u3059"
-              }), ((_errors$content3 = errors.content) === null || _errors$content3 === void 0 ? void 0 : _errors$content3.type) === 'maxLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+              }), ((_errors$content2 = errors.content) === null || _errors$content2 === void 0 ? void 0 : _errors$content2.type) === 'maxLength' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                 className: "text-center text-red-500 mt-3",
                 children: "10\u6587\u5B57\u4EE5\u4E0A\u306F\u5165\u529B\u3067\u304D\u307E\u305B\u3093"
               })]
@@ -4921,6 +4973,24 @@ var ResponseCreate = function ResponseCreate(props) {
         })
       })]
     })
+  });
+};
+var Error = function Error(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    role: "alert",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "bg-red-500 text-white font-bold rounded-t px-4 py-2",
+      children: "Error"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        children: props.error.id && props.error.id
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        children: props.error.thread_id && props.error.thread_id
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        children: props.error.content && props.error.content
+      })]
+    })]
   });
 };
 

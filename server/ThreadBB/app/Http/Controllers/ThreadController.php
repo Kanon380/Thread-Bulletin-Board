@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreThreadRequest;
 use App\Http\Requests\UpdateThreadRequest;
+use App\Http\Requests\IdRequest;
 use App\Models\Thread;
-use App\Models\Response;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -42,7 +41,7 @@ class ThreadController extends Controller
      * @param  \App\Http\Requests\StoreThreadRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreThreadRequest $request)
     {
         $params = $request->all();
         Thread::create([
@@ -58,7 +57,7 @@ class ThreadController extends Controller
      * @param  \App\Models\Thread  $thread
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show(IdRequest $request)
     {
         $params = $request->all();
         $threads = Thread::where('id', $params['id'])->with('responses')->first();

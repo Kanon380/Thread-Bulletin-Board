@@ -17,6 +17,7 @@ export default function Create(props) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 bg-white border-b border-gray-200">
+                            {props.errors.title && <Error error={props.errors} />}
                             <Child />
                         </div>
                     </div>
@@ -45,10 +46,9 @@ const Child = () => {
                     <div className="flex flex-wrap -m-2">
                         <div className="p-2 w-full mb-4">
                             <div className="relative">
-                                <label for="title" className="leading-7 text-sm text-gray-600">タイトル</label>
-                                <input {...register("title", { required: true, minLength: 1, maxLength: 10 })} type="text" id='title' className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                <label htmlFor="title" className="leading-7 text-sm text-gray-600">タイトル</label>
+                                <input {...register("title", { required: true, maxLength: 10 })} type="text" id='title' className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                 {errors.title?.type === 'required' && <p className='text-center text-red-500 mt-3'>タイトルは必須項目です</p>}
-                                {errors.title?.type === 'minLength' && <p className='text-center text-red-500 mt-3'>タイトルは1文字以上にして下さい</p>}
                                 {errors.title?.type === 'maxLength' && <p className='text-center text-red-500 mt-3'>タイトルは10文字以内にして下さい</p>}
                             </div>
                         </div>
@@ -62,5 +62,18 @@ const Child = () => {
                 </form>
             </div>
         </section>
+    )
+}
+
+const Error = (props) => {
+    return (
+        <div role="alert">
+            <div className="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+                Error
+            </div>
+            <div className="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+                <p>{props.error.title}</p>
+            </div>
+        </div>
     )
 }
